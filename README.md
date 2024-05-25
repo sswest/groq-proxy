@@ -20,11 +20,20 @@ GroqProxy一开始是为代理Groq的API而编写的，但也可以用于代理�
 
 ## 部署
 
+** 前置条件 **
+
+1. 具有可以访问目标 API 的代理服务器。
+2. 申请 [groq](https://console.groq.com/keys) 的访问密钥。
+
 ### Docker
 
 ```bash
 docker pull ghcr.io/sswest/groq-proxy:latest
-docker run -d -p 8000:8000 -e PROXY_URL=http://your-proxy-url:port ghcr.io/sswest/groq-proxy:latest
+docker run -d \ 
+  -p 8000:8000 \ 
+  -e HOST=127.0.0.1 \
+  -e PROXY_URL=http://your-proxy-url:port \ 
+  ghcr.io/sswest/groq-proxy:latest
 ```
 
 ### Docker Compose

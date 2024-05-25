@@ -23,7 +23,7 @@ async def completions(request: Request):
     if request.json.get("stream", False):
 
         async def _streaming_fn(response):
-            async with client.stream("POST", URL, headers=headers, json=request.body) as resp:
+            async with client.stream("POST", URL, headers=headers, data=request.body) as resp:
                 async for chunk in resp.aiter_bytes():
                     await response.write(chunk)
 
