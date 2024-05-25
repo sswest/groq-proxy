@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  groq-proxy:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - PROXY_URL=http://127.0.0.1:1087
+      - TARGET_URL=https://api.groq.com/openai/v1/chat/completions
+      - TIMEOUT=60
