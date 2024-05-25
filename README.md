@@ -23,8 +23,8 @@ GroqProxy一开始是为代理Groq的API而编写的，但也可以用于代理�
 ### Docker
 
 ```bash
-docker build -t groq-proxy .
-docker run -d -p 8000:8000 -e PROXY_URL=http://your-proxy-url:port groq-proxy
+docker pull ghcr.io/sswest/groq-proxy:latest
+docker run -d -p 8000:8000 -e PROXY_URL=http://your-proxy-url:port ghcr.io/sswest/groq-proxy:latest
 ```
 
 ### Docker Compose
